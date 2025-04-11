@@ -72,10 +72,23 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
                 try {
-                    val card = Card(name = name, description = description, photoPath1 = photoPath1, photoPath2 = photoPath2)
+                    val card = Card(name = name, description = description, favourite = 0, photoPath1 = photoPath1, photoPath2 = photoPath2)
                     dbHelper.insertCard(card)
                 } catch (e: Exception) {
                     Log.e("MainActivity", "Error adding card to database", e)
+                }
+            }
+        }
+    }
+
+    fun updateCardInDatabase(name: String, description: String, favourite: Int, photoPath1: String?, photoPath2: String?) {
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    val card = Card(name = name, description = description, favourite = favourite, photoPath1 = photoPath1, photoPath2 = photoPath2)
+                    dbHelper.updateCard(card)
+                } catch (e: Exception) {
+                    Log.e("MainActivity", "Error updating card in database", e)
                 }
             }
         }
@@ -93,6 +106,10 @@ class MainActivity : AppCompatActivity() {
             }
             callback(cards)
         }
+    }
+
+    fun getCardFromDatabase(name: String): Card? {
+        return dbHelper.getCardFromDatabase(name)
     }
 
     override fun onSupportNavigateUp(): Boolean {

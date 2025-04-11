@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package sk.guineapig_cards.ui.addcard
 
 import android.app.Activity

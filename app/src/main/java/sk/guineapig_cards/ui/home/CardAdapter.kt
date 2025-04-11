@@ -20,6 +20,7 @@ class CardAdapter(
         val descriptionTextView: TextView = itemView.findViewById(R.id.card_description)
         val imageView1: ImageView = itemView.findViewById(R.id.card_image1)
         val imageView2: ImageView = itemView.findViewById(R.id.card_image2)
+        val favouriteIcon: ImageView = itemView.findViewById(R.id.card_favourite_icon) // Add this in your layout
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
@@ -31,8 +32,16 @@ class CardAdapter(
         val card = cards[position]
         holder.nameTextView.text = card.name
         holder.descriptionTextView.text = card.description
+        holder.favouriteIcon.tag = card.favourite // Store the favourite status in the tag
         holder.imageView1.setImageURI(card.photoPath1?.toUri())
         holder.imageView2.setImageURI(card.photoPath2?.toUri())
+
+        // Set the star icon based on the favourite parameter
+        if (card.favourite == 0) {
+            holder.favouriteIcon.setImageResource(R.drawable.ic_star_empty)
+        } else {
+            holder.favouriteIcon.setImageResource(R.drawable.ic_star_full)
+        }
 
         // Set click listener
         holder.itemView.setOnClickListener {

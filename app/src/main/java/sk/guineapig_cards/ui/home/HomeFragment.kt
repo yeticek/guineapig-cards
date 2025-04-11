@@ -33,6 +33,7 @@ class HomeFragment : Fragment() {
                 val action = HomeFragmentDirections.actionHomeFragmentToCardDetailsFragment(
                     selectedCard.name,
                     selectedCard.description,
+                    selectedCard.favourite,
                     selectedCard.photoPath1 ?: "",
                     selectedCard.photoPath2 ?: ""
                 )

@@ -5,4 +5,5 @@
     <string name="title_back_button">Back</string>
     <string name="title_upload_photo">Upload photo please</string>
     <string name="recycler_view_cards_description">List of cards</string>
+    <string name="favourite_icon">Favourite</string>
 </resources>
