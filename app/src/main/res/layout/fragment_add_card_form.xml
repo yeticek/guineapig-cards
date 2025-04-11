@@ -10,7 +10,7 @@
         android:id="@+id/name_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="@string/name"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -20,7 +20,7 @@
         android:id="@+id/description_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Description"
+        android:hint="@string/description"
         android:inputType="textMultiLine"
         app:layout_constraintTop_toBottomOf="@id/name_input"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:id="@+id/upload_photo_button_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload Photo"
+        android:text="@string/upload_photo"
         app:layout_constraintTop_toBottomOf="@id/description_input"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Upload Photo"
+        android:text="@string/upload_photo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/photo_preview_1" />
 
@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Submit"
+        android:text="@string/submit"
         app:layout_constraintTop_toBottomOf="@id/photo_preview_2"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -71,6 +71,33 @@ class CardDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         )
     }
 
+    fun getFavouriteCards(): List<Card> {
+        val db = readableDatabase
+        val cursor = db.query(
+            TABLE_CARDS,
+            null,
+            "$COLUMN_FAVOURITE = ?",
+            arrayOf("1"),
+            null,
+            null,
+            null
+        )
+        val cards = mutableListOf<Card>()
+        with(cursor) {
+            while (moveToNext()) {
+                val id = getLong(getColumnIndexOrThrow(COLUMN_ID))
+                val name = getString(getColumnIndexOrThrow(COLUMN_NAME))
+                val description = getString(getColumnIndexOrThrow(COLUMN_DESCRIPTION))
+                val favourite = getInt(getColumnIndexOrThrow(COLUMN_FAVOURITE))
+                val photoPath1 = getString(getColumnIndexOrThrow(COLUMN_PHOTO_PATH_1))
+                val photoPath2 = getString(getColumnIndexOrThrow(COLUMN_PHOTO_PATH_2))
+                cards.add(Card(id, name, description, favourite, photoPath1, photoPath2))
+            }
+            close()
+        }
+        return cards
+    }
+
     fun getAllCards(): List<Card> {
         val db = readableDatabase
         val cursor = db.query(TABLE_CARDS, null, null, null, null, null, null)

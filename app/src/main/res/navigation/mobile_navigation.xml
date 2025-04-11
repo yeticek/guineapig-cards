@@ -28,6 +28,16 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_favourites"
+        android:name="sk.guineapig_cards.ui.favourites.FavouritesFragment"
+        android:label="Favourites"
+        tools:layout="@layout/fragment_favourites">
+        <action
+            android:id="@+id/action_favouritesFragment_to_cardDetailsFragment"
+            app:destination="@id/fragment_card_details" />
+    </fragment>
+
+    <fragment
         android:id="@+id/fragment_card_details"
         android:name="sk.guineapig_cards.ui.details.CardDetailsFragment"
         tools:layout="@layout/fragment_card_details">

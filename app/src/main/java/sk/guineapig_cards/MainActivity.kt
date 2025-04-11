@@ -108,6 +108,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun getFavouriteCardsFromDatabase(callback: (List<Card>) -> Unit) {
+        lifecycleScope.launch {
+            val cards = withContext(Dispatchers.IO) {
+                try {
+                    dbHelper.getFavouriteCards()
+                } catch (e: Exception) {
+                    Log.e("MainActivity", "Error fetching favourite cards from database", e)
+                    emptyList<Card>()
+                }
+            }
+            callback(cards)
+        }
+    }
+
     fun getCardFromDatabase(name: String): Card? {
         return dbHelper.getCardFromDatabase(name)
     }

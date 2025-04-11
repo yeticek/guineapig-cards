@@ -37,6 +37,7 @@ class CardDetailsFragment : Fragment() {
         binding.cardDescription.text = args.description
         binding.cardImage1.setImageURI(args.photoPath1.toUri())
         binding.cardImage2.setImageURI(args.photoPath2.toUri())
+        initStarIcon(binding.cardFavouriteIcon, args)
 
         binding.cardImage1.setOnClickListener {
             val action = CardDetailsFragmentDirections.actionCardDetailsFragmentToFullscreenImageFragment(args.photoPath1)
@@ -49,6 +50,14 @@ class CardDetailsFragment : Fragment() {
         }
         binding.cardFavouriteIcon.setOnClickListener {
             updateStarIcon(binding.cardFavouriteIcon, args)
+        }
+    }
+
+    private fun initStarIcon(favouriteIcon: ImageView, card: CardDetailsFragmentArgs) {
+        if (card.favourite == 0) {
+            favouriteIcon.setImageResource(R.drawable.ic_star_empty)
+        } else {
+            favouriteIcon.setImageResource(R.drawable.ic_star_full)
         }
     }
 
