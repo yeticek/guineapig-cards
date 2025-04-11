@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">guineapig-cards</string>
+    <string name="title_home">Home</string>
+    <string name="title_add_card">Add Card</string>
+    <string name="title_back_button">Back</string>
+    <string name="title_upload_photo">Upload photo please</string>
+    <string name="recycler_view_cards_description">List of cards</string>
+</resources>
